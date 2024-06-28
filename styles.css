@@ -1,5 +1,6 @@
 :root {
   --deep-blue: hsla(252, 100%, 10%, 1);
+  --deep-blue-30: hsla(240, 10%, 72%, 1);
   --deep-blue-50: hsla(240, 10%, 54%, 1);
   --deep-blue-80: hsla(243, 25%, 28%, 1);
   --energy-blue: hsla(196, 94%, 72%, 1);
@@ -39,6 +40,10 @@ h2 {
   font-weight: 500;
   font-size: 2rem;
   margin-bottom: 2.5rem;
+}
+
+a {
+  text-decoration: none;
 }
 
 .grey-text {
@@ -109,6 +114,7 @@ header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  overflow: visible;
 }
 header button {
   cursor: pointer;
@@ -120,6 +126,28 @@ header button {
   font-weight: 600;
   font-size: 0.875rem;
   border: none;
+  height: 100%;
+}
+
+nav {
+  display: grid;
+  max-width: 13em;
+  /* flex-direction: column; */
+  border: 1px solid var(--deep-blue-30);
+  border-bottom: none;
+  background-color: white;
+  position: absolute;
+  right: 0;
+  top: calc(var(--size-nav-height) - 1.2em);
+}
+
+nav a {
+  padding: 0.5em 0.75em;
+  border-bottom: 1px solid var(--deep-blue-30);
+  color: var(--deep-blue);
+}
+nav a:hover {
+  background-color: var(--energy-purple-10);
 }
 
 .col-two {
