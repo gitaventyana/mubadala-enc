@@ -26,6 +26,20 @@ function clickMenu() {
   }
 }
 
+// video mute button
+const muteBtn = document.getElementById("mute-btn");
+const muteIcon = document.getElementById("mute-icon");
+const vid = document.getElementById("heroVideo");
+muteBtn.onclick = toggleMute;
+function toggleMute() {
+  vid.muted = !vid.muted;
+  if (vid.muted) {
+    muteIcon.src = "assets/icons/audio-mute.svg";
+  } else {
+    muteIcon.src = "assets/icons/audio-on.svg";
+  }
+}
+
 const docBtn = document.getElementById("res-doc-btn");
 const vidBtn = document.getElementById("res-vid-btn");
 docBtn.onclick = resourceTabClick;

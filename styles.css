@@ -84,6 +84,7 @@ article {
   padding-top: var(--size-nav-height);
   height: 100vh;
   overflow: hidden;
+  position: relative;
 }
 video {
   width: 100%;
@@ -100,6 +101,22 @@ video {
   justify-content: center;
   text-decoration: none;
   color: inherit;
+}
+
+button#mute-btn {
+  background-color: hsla(240, 10%, 72%, 0.3);
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  right: 3rem;
+  top: calc(var(--size-nav-height) + 3rem);
+  z-index: 10;
+  border: none;
+  border-radius: 100%;
+  cursor: pointer;
+}
+button#mute-btn img {
+  width: 30px;
 }
 
 header {
