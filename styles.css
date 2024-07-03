@@ -61,6 +61,7 @@ a {
 .card {
   border-radius: 0 24px 0 0;
   border: 1px solid var(--energy-purple);
+  background-color: white;
   overflow: hidden;
   padding: 1.5rem;
   display: flex;
@@ -254,11 +255,44 @@ nav a:hover {
   width: 65%;
   gap: 4rem;
   align-items: center;
+  margin-bottom: 3rem;
 }
 
 .training-intro-content p {
   margin-top: 1.25rem;
   /* line-height: 1.375em; */
+}
+
+.month-line {
+  width: 100%;
+  padding: 1rem 0;
+  background: linear-gradient(
+    90deg,
+    hsla(256, 81%, 65%, 0.4) 0%,
+    hsla(196, 94%, 72%, 0.4) 50%,
+    hsla(150, 94%, 75%, 0.4) 100%
+  );
+  color: var(--energy-purple);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  text-align: center;
+}
+.slider-container {
+  position: relative;
+  margin: 4rem 0;
+}
+.pin {
+  cursor: pointer;
+  position: absolute;
+  top: -50%;
+  left: 0;
+}
+.training-events {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  padding-top: 1.5rem;
 }
 
 .training-feedback {
