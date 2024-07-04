@@ -120,3 +120,18 @@ function resourceTabClick(e) {
     vidTab.classList.add("hide");
   }
 }
+
+const videoFrame = document.getElementById("video-frame");
+const videoItems = document.querySelectorAll(".video-list-item");
+videoItems.forEach((item) => {
+  item.onclick = selectVideo;
+});
+function selectVideo(e) {
+  if (!e.currentTarget.classList.contains("active")) {
+    let currentActive = document.querySelector(".video-list-item.active");
+    currentActive.classList.remove("active");
+    e.currentTarget.classList.add("active");
+    // update video player
+    videoFrame.src = e.currentTarget.dataset.videourl;
+  }
+}
