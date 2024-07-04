@@ -243,6 +243,20 @@ nav a:hover {
   height: 1.5rem;
 }
 
+img.small-icon {
+  width: 20px;
+}
+.date-info {
+  font-size: 0.8rem;
+  color: var(--deep-blue-80);
+  display: flex;
+  align-items: center;
+  margin-top: -0.5rem;
+}
+.space-right {
+  margin-right: 2rem;
+}
+
 #training {
   background-image: url(assets/images/bg-training.svg);
   background-repeat: no-repeat;

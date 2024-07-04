@@ -46,6 +46,8 @@ function toggleMute() {
 
 // Make the DIV element draggable:
 dragElement(document.getElementById("date-pin"));
+const eventsContainer = document.querySelector(".training-events");
+let eventData = [];
 
 function dragElement(elmnt) {
   let pos1 = 0,
@@ -54,6 +56,15 @@ function dragElement(elmnt) {
     pos4 = 0;
   const slider = document.querySelector(".slider-container");
   elmnt.onmousedown = dragMouseDown;
+  setInitialPinPos();
+
+  function setInitialPinPos() {
+    let now = new Date();
+    let month = now.getMonth();
+    let newPos = (slider.offsetWidth / 12) * month;
+    elmnt.style.left = newPos + "px";
+    getEvents(month);
+  }
 
   function dragMouseDown(e) {
     e.preventDefault();
@@ -93,7 +104,59 @@ function dragElement(elmnt) {
     document.onmousemove = null;
 
     // fetch current month's events
+    eventsContainer.innerHTML = "";
+    getEvents(rounded);
   }
+}
+
+function getEvents(month) {
+  fetch(`data/events/${month + 1}.json`)
+    .then((response) => response.json())
+    .then((data) => {
+      let events = [];
+      events = JSON.parse(JSON.stringify(data));
+
+      if (events && events.length > 0) {
+        events.forEach((item) => {
+          let eventItem = document.createElement("div");
+          eventItem.classList.add("card", "card-file");
+
+          let title = document.createElement("span");
+          title.innerHTML = item.title;
+          eventItem.appendChild(title);
+
+          let timeDiv = document.createElement("div");
+          timeDiv.classList.add("date-info");
+          let date = new Date(item.date);
+          timeDiv.innerHTML = `
+          <img class="small-icon" src="assets/icons/date-icon.svg" />
+          <span class="space-right"> ${date.toLocaleDateString("en-us", {
+            weekday: "long",
+          })}, ${date.toLocaleDateString("en-us", {
+            day: "numeric",
+          })} ${date.toLocaleDateString("en-us", { month: "long" })} </span>
+          <img class="small-icon" src="assets/icons/clock-icon.svg" />
+          <span>${item.time}</span>
+          `;
+          eventItem.appendChild(timeDiv);
+
+          let elem = document.createElement("div");
+          elem.classList.add("card-file-link");
+          let icon = document.createElement("img");
+          icon.src = "assets/icons/calendar.svg";
+          let link = document.createElement("a");
+          link.classList.add("link--icon");
+          link.innerHTML = `<span>View Event</span>
+                    <img src="assets/icons/chevron.svg" alt="" />`;
+          elem.append(icon, link);
+          eventItem.appendChild(elem);
+          eventsContainer.appendChild(eventItem);
+        });
+      }
+    })
+    .catch((error) => {
+      return [];
+    });
 }
 
 //
