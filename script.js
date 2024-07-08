@@ -166,6 +166,53 @@ function getEvents(month) {
 }
 
 //
+// Newsletter section
+//
+
+const newsList = document.querySelector(".newsletter-list");
+getNewsletters(newsList);
+
+function getNewsletters(container) {
+  fetch("data/newsletters.json")
+    .then((response) => response.json())
+    .then((data) => {
+      let news = [];
+      news = JSON.parse(JSON.stringify(data));
+
+      let releaseCount = document.querySelector(
+        ".newsletter-download-card .grey-text"
+      );
+      releaseCount.innerHTML = `${news.length} Releases`;
+
+      news.forEach((n) => {
+        let newItem;
+        newItem = document.createElement("div");
+        newItem.className = "newsletter-item";
+
+        let texts = document.createElement("div");
+        let date = document.createElement("div");
+        date.className = "newsletter-date";
+        date.innerHTML = n.date;
+        let title = document.createElement("span");
+        title.className = "newsletter-title";
+        title.innerHTML = n.title;
+        texts.append(date, title);
+
+        let link = document.createElement("a");
+        link.className = "link--icon";
+        link.href = n.link;
+        link.target = "_blank";
+        link.innerHTML = `<span>View</span>
+                  <img src="assets/icons/chevron.svg" />`;
+
+        newItem.append(texts, link);
+
+        container.appendChild(newItem);
+      });
+    });
+}
+
+//
 // Resources section
 //
 
@@ -208,7 +255,7 @@ function getVideos(container) {
 
       let first = 1;
       videos.forEach((vid) => {
-        let newItem; // = createVideoItem(vid);
+        let newItem;
         newItem = document.createElement("div");
         newItem.className = "video-list-item";
         if (first) {
@@ -228,23 +275,6 @@ function getVideos(container) {
     });
 }
 
-function createVideoItem(data) {
-  let newItem = document.createElement("div");
-  newItem.className = "video-list-item";
-  newItem.dataset.videourl = data["video_url"];
-  let thumbnail = document.createElement("img");
-  thumbnail.src = data["thumbnail"];
-  let title = document.createElement("span");
-  title.innerHTML = data.title;
-  newItem.append(thumbnail, title);
-
-  return newItem;
-}
-
-// const videoItems = document.querySelectorAll(".video-list-item");
-// videoItems.forEach((item) => {
-//   item.onclick = selectVideo;
-// });
 function selectVideo(e) {
   console.log("select");
   if (!e.currentTarget.classList.contains("active")) {

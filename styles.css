@@ -374,6 +374,10 @@ img.small-icon {
   margin-left: 50%;
   margin-top: -20rem;
 }
+.newsletter-list {
+  height: 230px;
+  overflow-y: scroll;
+}
 .newsletter-item {
   padding: 1rem 0;
   display: flex;
