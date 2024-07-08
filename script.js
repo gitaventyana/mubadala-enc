@@ -6,8 +6,12 @@ const menuBtn = document.getElementById("header-menu-btn");
 const menu = document.querySelector("nav");
 
 menuBtn.onclick = clickMenu;
-!isMobile() ? (menu.onmouseenter = hoverMenu) : null;
-!isMobile() ? (menu.onmouseleave = mouseleaveMenu) : null;
+if (!isMobile()) {
+  menuBtn.onmouseenter = hoverMenu;
+  menuBtn.onmouseleave = mouseleaveMenu;
+  menu.onmouseenter = hoverMenu;
+  menu.onmouseleave = mouseleaveMenu;
+}
 
 function hideMenu() {
   menu.className = "hide";
