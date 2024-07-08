@@ -1,0 +1,62 @@
+@media screen and (orientation: portrait) {
+  #home {
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  button#mute-btn {
+    width: 30px;
+    height: 30px;
+    top: calc(var(--size-nav-height) + 1rem);
+    right: 1rem;
+  }
+  button#mute-btn img {
+    width: 20px;
+  }
+
+  .col-two {
+    grid-template-columns: 1fr;
+  }
+
+  #training {
+    background: none;
+  }
+  .training-intro {
+    flex-direction: column;
+    width: 100%;
+  }
+  .slider-container {
+    display: none;
+  }
+  .card-feedback {
+    width: 100%;
+  }
+  .title--card {
+    font-size: 1.5rem;
+  }
+
+  .contact-content {
+    width: 100%;
+    margin: 0;
+  }
+
+  footer .container {
+    flex-direction: column;
+  }
+  .footer-right {
+    margin-top: 3rem;
+    grid-template-columns: 1fr;
+    gap: 2em;
+  }
+  footer img {
+    width: 60vw;
+  }
+  #copyright {
+    display: none;
+  }
+  #copyright-mobile {
+    display: flex;
+    margin-top: 1.5rem;
+  }
+}

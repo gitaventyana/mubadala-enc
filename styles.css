@@ -39,6 +39,7 @@ p {
 h2 {
   font-weight: 500;
   font-size: 2rem;
+  line-height: 1em;
   margin-bottom: 2.5rem;
 }
 
@@ -48,7 +49,7 @@ a {
 
 .grey-text {
   color: var(--deep-blue-50);
-  font-size: 0.875rem;
+  font-size: clamp(0.4rem, -0.3125rem + 1.4844vw, 0.875rem);
 }
 
 .container {
@@ -95,7 +96,7 @@ video {
   background-color: var(--energy-blue);
   border-radius: 0 12px 0 0;
   padding: 0.75em 1.5em;
-  font-size: 1rem;
+  font-size: clamp(0.65rem, 0.125rem + 1.0938vw, 1rem);
   font-weight: 600;
   display: flex;
   align-items: center;
@@ -181,7 +182,7 @@ nav a:hover {
 }
 
 .title--card {
-  font-size: 1.5rem;
+  font-size: clamp(1rem, -1.0098rem + 3.9216vw, 1.5rem);
   font-weight: 500;
   text-wrap: wrap;
   line-height: 1.25em;
@@ -200,7 +201,10 @@ nav a:hover {
   grid-template-columns: 1fr 6fr 2.5fr;
   gap: 12px;
   align-items: center;
-  font-size: 1rem;
+  font-size: clamp(0.65rem, 0.125rem + 1.0938vw, 1rem);
+}
+.card--link img {
+  width: clamp(2rem, 0.5rem + 3.125vw, 3rem);
 }
 
 .policy-title {
@@ -211,7 +215,7 @@ nav a:hover {
 }
 
 .card-file {
-  font-size: 1.25rem;
+  font-size: clamp(0.8rem, 0.125rem + 1.4062vw, 1.25rem);
   line-height: 1.2em;
   min-height: 8.5em;
   justify-content: space-between;
@@ -221,12 +225,11 @@ nav a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 1rem;
+  font-size: clamp(0.65rem, 0.125rem + 1.0938vw, 1rem);
 }
 
 .card-file-link > img {
-  width: 3rem;
-  height: 3rem;
+  width: clamp(2rem, 0.5rem + 3.125vw, 3rem);
 }
 
 .link--icon {
@@ -247,7 +250,7 @@ img.small-icon {
   width: 20px;
 }
 .date-info {
-  font-size: 0.8rem;
+  font-size: clamp(0.4rem, -0.313rem + 1.3913vw, 0.8rem);
   color: var(--deep-blue-80);
   display: flex;
   align-items: center;
@@ -260,7 +263,7 @@ img.small-icon {
 #training {
   background-image: url(assets/images/bg-training.svg);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% auto;
   margin-bottom: var(--size-article-padding);
 }
 
@@ -300,6 +303,9 @@ img.small-icon {
   position: absolute;
   top: -50%;
   left: 0;
+}
+.pin img {
+  width: calc(min(90vw, 1200px) / 12);
 }
 .training-events {
   display: grid;
@@ -452,26 +458,34 @@ img.small-icon {
 .contact-content h3 {
   font-size: 1.75rem;
   font-weight: 500;
+  line-height: 1em;
 }
 .contact-content p {
   margin-bottom: 1em;
 }
 .contact-list {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 0.625rem + 0.7813vw, 1.25rem);
   font-weight: 500;
   margin: 2em 0;
-  display: flex;
-  gap: 2em;
+  display: grid;
+  gap: 1em;
+  grid-template-columns: repeat(auto-fill, 280px);
 }
 .contact-item {
   display: flex;
   align-items: center;
   gap: 0.5em;
 }
+.contact-item img {
+  width: clamp(2.5rem, 0.625rem + 3.9063vw, 3.75rem);
+}
 .contact-type {
-  font-size: 0.75rem;
+  font-size: clamp(0.65rem, 0.5rem + 0.3125vw, 0.75rem);
   text-transform: uppercase;
 }
+/* .contact-info {
+  font-size: 1.25rem;
+} */
 .contact-text {
   display: flex;
   flex-direction: column;
@@ -508,6 +522,9 @@ footer img {
 footer a {
   text-decoration: none;
   color: white;
+}
+#copyright-mobile {
+  display: none;
 }
 
 .hide {
