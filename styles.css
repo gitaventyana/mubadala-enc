@@ -49,7 +49,7 @@ a {
 
 .grey-text {
   color: var(--deep-blue-50);
-  font-size: clamp(0.4rem, -0.3125rem + 1.4844vw, 0.875rem);
+  font-size: clamp(0.6rem, 0.1875rem + 0.8594vw, 0.875rem);
 }
 
 .container {
@@ -249,7 +249,7 @@ img.small-icon {
   width: 20px;
 }
 .date-info {
-  font-size: clamp(0.4rem, -0.313rem + 1.3913vw, 0.8rem);
+  font-size: clamp(0.6rem, 0.1875rem + 0.8594vw, 0.875rem);
   color: var(--deep-blue-80);
   display: flex;
   align-items: center;
@@ -277,6 +277,25 @@ img.small-icon {
 .training-intro-content p {
   margin-top: 1.25rem;
   /* line-height: 1.375em; */
+}
+
+.schedule-title {
+  display: flex;
+  gap: 2rem;
+}
+.schedule-title h2 {
+  margin: 0;
+}
+.schedule-title img {
+  width: 30px;
+}
+.schedule-title .grey-text {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.schedule-title .grey-text p {
+  color: var(--deep-blue-50);
 }
 
 .month-line {
