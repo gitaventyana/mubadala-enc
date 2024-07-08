@@ -89,7 +89,8 @@
     display: flex;
     flex-direction: column;
   }
-  .training-events .card {
+  .training-events .card,
+  .card-policy .card {
     width: 100%;
   }
   .card-feedback {
