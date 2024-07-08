@@ -187,14 +187,65 @@ function resourceTabClick(e) {
 }
 
 const videoFrame = document.getElementById("video-frame");
-const videoItems = document.querySelectorAll(".video-list-item");
-videoItems.forEach((item) => {
-  item.onclick = selectVideo;
-});
+
+//
+// Populate resource videos
+//
+const videoList = document.querySelector(".video-list");
+getVideos(videoList);
+
+function getVideos(container) {
+  fetch("data/resource-videos.json")
+    .then((response) => response.json())
+    .then((data) => {
+      let videos = [];
+      videos = JSON.parse(JSON.stringify(data));
+      videoFrame.src = videos[0].video_url;
+
+      let first = 1;
+      videos.forEach((vid) => {
+        let newItem; // = createVideoItem(vid);
+        newItem = document.createElement("div");
+        newItem.className = "video-list-item";
+        if (first) {
+          newItem.classList.add("active");
+          first = 0;
+        }
+        newItem.dataset.videourl = vid["video_url"];
+        let thumbnail = document.createElement("img");
+        thumbnail.src = vid["thumbnail"];
+        let title = document.createElement("span");
+        title.innerHTML = vid.title;
+        newItem.append(thumbnail, title);
+
+        newItem.onclick = selectVideo;
+        container.appendChild(newItem);
+      });
+    });
+}
+
+function createVideoItem(data) {
+  let newItem = document.createElement("div");
+  newItem.className = "video-list-item";
+  newItem.dataset.videourl = data["video_url"];
+  let thumbnail = document.createElement("img");
+  thumbnail.src = data["thumbnail"];
+  let title = document.createElement("span");
+  title.innerHTML = data.title;
+  newItem.append(thumbnail, title);
+
+  return newItem;
+}
+
+// const videoItems = document.querySelectorAll(".video-list-item");
+// videoItems.forEach((item) => {
+//   item.onclick = selectVideo;
+// });
 function selectVideo(e) {
+  console.log("select");
   if (!e.currentTarget.classList.contains("active")) {
     let currentActive = document.querySelector(".video-list-item.active");
-    currentActive.classList.remove("active");
+    currentActive ? currentActive.classList.remove("active") : null;
     e.currentTarget.classList.add("active");
     // update video player
     videoFrame.src = e.currentTarget.dataset.videourl;
