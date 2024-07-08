@@ -151,7 +151,6 @@ header button {
 nav {
   display: grid;
   max-width: 13em;
-  /* flex-direction: column; */
   border: 1px solid var(--deep-blue-30);
   border-bottom: none;
   background-color: white;

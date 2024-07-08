@@ -5,6 +5,28 @@
 }
 
 @media screen and (max-width: 750px) {
+  img#headerLogo {
+    width: 30vw;
+  }
+  header button {
+    font-size: 14px;
+    padding: 0;
+  }
+
+  header .container {
+    position: static;
+  }
+  nav {
+    max-width: none;
+    width: 100vw;
+    top: var(--size-nav-height);
+    border-left: none;
+    border-right: none;
+  }
+  nav a {
+    padding: 16px 20px;
+  }
+
   button#mute-btn {
     width: 30px;
     height: 30px;
@@ -15,8 +37,26 @@
     width: 20px;
   }
 
+  .title--card {
+    font-size: 1.5rem;
+  }
+  .policy-title .title--card {
+    font-size: 1rem;
+  }
+
   .col-two {
     grid-template-columns: 1fr;
+  }
+
+  .policy-title {
+    min-height: auto;
+  }
+
+  .card--link {
+    grid-template-columns: 40px auto;
+  }
+  .policy-title .button {
+    grid-column: span 2;
   }
 
   #training {
@@ -31,9 +71,6 @@
   }
   .card-feedback {
     width: 100%;
-  }
-  .title--card {
-    font-size: 1.5rem;
   }
 
   .contact-content {

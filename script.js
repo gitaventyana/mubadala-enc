@@ -1,11 +1,13 @@
+function isMobile() {
+  return window.matchMedia("(max-width: 767px)").matches;
+}
+
 const menuBtn = document.getElementById("header-menu-btn");
 const menu = document.querySelector("nav");
 
-menuBtn.onmouseenter = hoverMenu;
-menuBtn.onmouseleave = mouseleaveMenu;
 menuBtn.onclick = clickMenu;
-menu.onmouseenter = hoverMenu;
-menu.onmouseleave = mouseleaveMenu;
+!isMobile() ? (menu.onmouseenter = hoverMenu) : null;
+!isMobile() ? (menu.onmouseleave = mouseleaveMenu) : null;
 
 function hideMenu() {
   menu.className = "hide";
