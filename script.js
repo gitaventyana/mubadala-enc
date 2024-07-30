@@ -151,6 +151,7 @@ function getEvents(month) {
           let icon = document.createElement("img");
           icon.src = "assets/icons/calendar.svg";
           let link = document.createElement("a");
+          link.href = item.link;
           link.classList.add("link--icon");
           link.innerHTML = `<span>View Event</span>
                     <img src="assets/icons/chevron.svg" alt="" />`;
